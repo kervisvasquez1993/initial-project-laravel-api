@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Horario;
 
 use Illuminate\Http\Request;
 
@@ -9,9 +10,21 @@ class HorarioController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $request->validate([
+            'dia' => 'required',
+            'cancha' => 'required',
+        ]);
+
+        $dia = $request->query('dia');
+        $idCancha = $request->query('cancha');
+
+        $horarios = Horario::where('dia_semana', $dia)
+            ->where('id_cancha', $idCancha)
+            ->get();
+
+        return response()->json($horarios);
     }
 
     /**
