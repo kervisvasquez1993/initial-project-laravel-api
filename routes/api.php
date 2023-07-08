@@ -19,6 +19,7 @@ Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::post('/register', [AuthController::class, 'register'])->name("register");
 Route::middleware('auth:api')->group(function () {
     Route::get('/horarios', [HorarioController::class, 'index']);
+    Route::get('/all-horarios', [HorarioController::class, 'showAll']);
     Route::post('/reserva', [ReservaController::class, 'store']);
     Route::get('/reserva', [ReservaController::class, 'index']);
 

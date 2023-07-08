@@ -31,6 +31,10 @@ class HorarioController extends Controller
 
         return response()->json($horarios);
     }
+    public function showAll(){
+        $horarios = Horario::all();
+        return response()->json($horarios);
+    }
 
     /**
      * Show the form for creating a new resource.
