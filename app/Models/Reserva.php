@@ -11,6 +11,7 @@ class Reserva extends Model
     protected $fillable = [
         'fecha',
         'id_horario',
+        'porcentaje_lluvia',
         'id_user',
     ];
 

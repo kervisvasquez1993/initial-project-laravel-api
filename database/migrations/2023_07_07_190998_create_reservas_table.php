@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('reservas', function (Blueprint $table) {
             $table->id();
             $table->date('fecha');
+            $table->integer('porcentaje_lluvia')->nullable();
             $table->foreignId('id_user')->references('id')->on('users');
             $table->foreignId('id_horario')->references('id')->on('horarios');
             $table->timestamps();

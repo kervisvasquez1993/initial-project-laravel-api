@@ -50,6 +50,7 @@ class ReservaController extends Controller
         $reserva = Reserva::create([
             'fecha' => $request->fecha,
             'id_horario' => $request->id_horario,
+            'porcentaje_lluvia' => $request->porcentaje_lluvia,
             'id_user' => auth()->id(),
         ]);
 
