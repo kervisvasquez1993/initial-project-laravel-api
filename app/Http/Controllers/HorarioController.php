@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Horario;
 
+use App\Models\Horario;
 use Illuminate\Http\Request;
 
 class HorarioController extends Controller
@@ -15,14 +15,20 @@ class HorarioController extends Controller
         $request->validate([
             'dia' => 'required',
             'cancha' => 'required',
+            'fecha' => 'required|date',
         ]);
 
         $dia = $request->query('dia');
         $idCancha = $request->query('cancha');
+        $fecha = $request->query('fecha');
 
-        $horarios = Horario::where('dia_semana', $dia)
+        $horarios = Horario::with(['reservas' => function ($query) use ($fecha) {
+            $query->where('fecha', $fecha);
+        }])
+            ->where('dia_semana', $dia)
             ->where('id_cancha', $idCancha)
             ->get();
+
         return response()->json($horarios);
     }
 
