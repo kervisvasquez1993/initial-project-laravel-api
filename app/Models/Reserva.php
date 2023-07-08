@@ -10,9 +10,17 @@ class Reserva extends Model
     use HasFactory;
     protected $fillable = [
         'fecha',
-        'hora_inicio',
-        'hora_cierre',
         'id_horario',
         'id_user',
     ];
+
+    public function horario()
+    {
+        return $this->belongsTo(Horario::class, 'id_horario');
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user');
+    }
+
 }

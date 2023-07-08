@@ -15,4 +15,14 @@ class Horario extends Model
         'id_cancha',
     ];
 
+    public function reservas()
+    {
+        return $this->hasMany(Reserva::class, 'id_horario');
+    }
+
+    public function cancha()
+    {
+        return $this->belongsTo(Cancha::class, 'id_cancha');
+    }
+
 }

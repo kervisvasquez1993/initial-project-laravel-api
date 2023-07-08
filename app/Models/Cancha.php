@@ -13,4 +13,6 @@ class Cancha extends Model
         'lan',
         'lat',
     ];
+    
+
 }

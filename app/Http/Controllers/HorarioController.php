@@ -23,7 +23,6 @@ class HorarioController extends Controller
         $horarios = Horario::where('dia_semana', $dia)
             ->where('id_cancha', $idCancha)
             ->get();
-
         return response()->json($horarios);
     }
 
