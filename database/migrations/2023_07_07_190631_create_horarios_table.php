@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->time('hora_inicio');
             $table->time('hora_cierre');
-            $table->enum('dia_semana', ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo']);
+            $table->enum('dia_semana', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']);
             $table->foreignId('id_cancha')->constrained('canchas');
             $table->timestamps();
         });

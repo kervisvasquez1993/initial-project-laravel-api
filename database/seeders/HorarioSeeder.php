@@ -13,7 +13,7 @@ class HorarioSeeder extends Seeder
      */
     public function run()
     {
-        $diasSemana = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo'];
+        $diasSemana = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
         $canchas = [1, 2, 3];
 
         foreach ($canchas as $cancha) {
